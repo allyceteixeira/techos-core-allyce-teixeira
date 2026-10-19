@@ -151,3 +151,4 @@ classDiagram
 - Git e GitHub
 # techos-core-allyce-teixeira
 Projeto TechOS Core — Sprint Express, com POO e padrões criacionais.
+![Diagrama de Classes UML](diagrama.png)
