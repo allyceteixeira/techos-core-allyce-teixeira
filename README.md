@@ -91,6 +91,61 @@ Responsabilidade:
 
 ## 6. Tecnologias
 
+## 7. Diagrama de Classes
+
+```mermaid
+classDiagram
+    class Usuario {
+        <<abstract>>
+        -number id
+        -string nome
+        -string email
+        +getId()
+        +getNome()
+        +getEmail()
+    }
+
+    class Cliente {
+        -string telefone
+    }
+
+    class Tecnico {
+        -string especialidade
+    }
+
+    class OrdemServico {
+        -number id
+        -Cliente cliente
+        -Tecnico tecnico
+        -string descricao
+        -string status
+        +consultarStatus()
+        +alterarStatus()
+    }
+
+    class UsuarioFactory {
+        +criarUsuario(tipo, dados)
+    }
+
+    class GerenciadorOS {
+        -instance
+        -ordensServico
+        +getInstance()
+        +adicionarOS(os)
+        +listarOS()
+        +buscarOS(id)
+    }
+
+    Usuario <|-- Cliente
+    Usuario <|-- Tecnico
+    OrdemServico --> Cliente : pertence a
+    OrdemServico --> Tecnico : atendida por
+    UsuarioFactory ..> Cliente : cria
+    UsuarioFactory ..> Tecnico : cria
+    GerenciadorOS o-- OrdemServico : gerencia
+```
+
+
 - JavaScript (ES6 Modules)
 - Node.js
 - Git e GitHub
